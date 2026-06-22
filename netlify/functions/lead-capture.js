@@ -15,11 +15,11 @@ const GROUP_NAME = "Meta Ads Reframe";
 const SOURCE_LABELS = new Set([
   "apollo", "meta", "youtube", "referral", "personal", "unknown",
   "Website", "website", "ig", "Guidebook", "cold_email", "tiktok",
-  "Meta", "google", "Cold Call", "Facebook_Mobile_Feed", "fb", "direct"
+  "Meta", "google", "Cold Call", "Facebook_Mobile_Feed", "fb"
 ]);
 
 function normalizeSource(raw) {
-  if (!raw) return "direct";
+  if (!raw || String(raw).toLowerCase() === "direct") return "unknown";
   const s = String(raw).toLowerCase();
   if (s === "instagram") return "ig";
   if (s === "facebook" || s === "fb") return "fb";
